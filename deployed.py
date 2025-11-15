@@ -27,12 +27,12 @@ dwkd = wkd_lambda(st.selectbox('Select Your Weekday of departure',['Mon','Tues',
 wkend = st.number_input('Enter how many weekend nights are there in stay',min_value=0)
 wk = st.number_input('How many week nights are there in stay?',min_value=0)
 totn = wkend + wk
-mkt = (lambda x:0 if x == 'offline' else 1)(st.selectbox('Mode of Booking',['Online','Offline']))
+mkt = (lambda x:0 if x == 'Offline' else 1)(st.selectbox('Mode of Booking',['Online','Offline']))
 lt = st.number_input('How many days prior the booking was made',min_value=0)
 price = st.number_input('what is the average price per room',min_value=0)
 adults = st.number_input('How many adult members in booking',min_value=0)
-spcl = st.selectbox('Select the number of special request',min_value=0)
-park = (lambda x: 0 if x =='No' else 1)(st.selectbox('Does guest need any parking space'))
+spcl = st.selectbox('Select the number of special request',[0,1,2,3,4,5])
+park = (lambda x: 0 if x =='No' else 1)(st.selectbox('Does guest need any parking space',['Yes','No']))
 
 # Transform the data
 lt_t,price_t = transformer.transform([[lt,price]])[0]
